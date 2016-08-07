@@ -37,7 +37,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'pikapy = ptcaccount.console:entry',
+            'pikapy = pikapy.console:entry',
         ],
     }
 )
