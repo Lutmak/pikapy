@@ -391,7 +391,7 @@ def random_account(username=None, password=None, email=None, email_tag=False, co
     password = _random_string() if password is None else str(password)
     try_email = _random_email() if email is None else str(email)
     
-    for x in range (0,count):
+    for x in range (0,count+1):
         account_created = False
         while not account_created:
             # Add tag in loop so that it is update if email or username changes
