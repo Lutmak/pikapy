@@ -53,7 +53,7 @@ def parse_arguments(args):
 def entry():
     """Main entry point for the package console commands"""
     args = parse_arguments(sys.argv[1:])
-    for x in range(0,args.count)
+    for x in range(0,args.count):
         try:
         # Create the random account
             account_info = random_account(
