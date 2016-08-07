@@ -1,1 +1,1 @@
-from ptcaccount.accountcreator import *
+from pikapy.accountcreator import *

@@ -53,42 +53,41 @@ def parse_arguments(args):
 def entry():
     """Main entry point for the package console commands"""
     args = parse_arguments(sys.argv[1:])
-    try:
+    for x in range(0,args.count)
+        try:
         # Create the random account
-        account_info = random_account(
-            args.username, args.password, args.email, args.email_tag, args.count
-        )
-    
-        
-    
-        # Display the account credentials
-        print('Created new account:')
-        print('  Username:  {}'.format(account_info[USERNAME]))
-        print('  Passwrd:  {}'.format(account_info[PASSWORD]))
-        print('  Email   :  {}'.format(account_info[EMAIL]))
-    
-        # Accept Terms Service
-        
-        accept_tos(account_info[USERNAME], account_info[PASSWORD])
-    
-        # Append usernames 
-        with open("usernames.txt", "a") as ulist:
-            ulist.write(account_info[USERNAME]+"\n")
-            ulist.close()
+            account_info = random_account(
+                args.username, args.password, args.email, args.email_tag
+            )
+
+            # Display the account credentials
+            print('Created new account:')
+            print('  Username:  {}'.format(account_info[USERNAME]))
+            print('  Passwrd:  {}'.format(account_info[PASSWORD]))
+            print('  Email   :  {}'.format(account_info[EMAIL]))
+
+            # Accept Terms Service
             
-        with open("pokemaparguments.txt", "a") as plist:
-            plist.write(" -u " + account_info[USERNAME])
-            plist.close()
-        print('Usernames stored in usernames.txt and formated ones in pokemaparguments.txt ')
-        time.sleep(2)
-        
-    # Handle account creation failure exceptions
-    except PTCInvalidPasswordException as err:
-        print('Invalid password: {}'.format(err))
-    except (PTCInvalidEmailException, PTCInvalidNameException) as err:
-        print('Failed to create account! {}'.format(err))
-    except PTCException as err:
-        print('Failed to create account! General error:  {}'.format(err))
+            accept_tos(account_info[USERNAME], account_info[PASSWORD])
+
+            # Append usernames 
+            with open("usernames.txt", "a") as ulist:
+                ulist.write(account_info[USERNAME]+"\n")
+                ulist.close()
+                
+            with open("pokemaparguments.txt", "a") as plist:
+                plist.write(" -u " + account_info[USERNAME])
+                plist.close()
+            print('Usernames stored in usernames.txt and formated ones in pokemaparguments.txt ')
+            time.sleep(2)
+
+        # Handle account creation failure exceptions
+        except PTCInvalidPasswordException as err:
+            print('Invalid password: {}'.format(err))
+        except (PTCInvalidEmailException, PTCInvalidNameException) as err:
+            print('Failed to create account! {}'.format(err))
+        except PTCException as err:
+            print('Failed to create account! General error:  {}'.format(err))
 
 def accept_tos(username, password):
         api = PGoApi()

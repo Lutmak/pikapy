@@ -11,7 +11,7 @@ except ImportError:
 
 import requests
 
-from ptcaccount.ptcexceptions import *
+from pikapy.ptcexceptions import *
 
 
 __all__ = [
@@ -342,7 +342,7 @@ def _validate_response(resp):
     return False  # Should never hit here
 
 
-def random_account(username=None, password=None, email=None, email_tag=False, count=1):
+def random_account(username=None, password=None, email=None, email_tag=False):
     """Crate a random Pokemon Trainer Club account
 
     Creates a new account with random username, password, and email.
@@ -391,35 +391,35 @@ def random_account(username=None, password=None, email=None, email_tag=False, co
     password = _random_string() if password is None else str(password)
     try_email = _random_email() if email is None else str(email)
     
-    for x in range (1,count+1):
-        account_created = False
-        while not account_created:
-            # Add tag in loop so that it is update if email or username changes
-            if email_tag:
-                try_email = _tag_email(try_email, try_username)
+ 
+    account_created = False
+    while not account_created:
+        # Add tag in loop so that it is update if email or username changes
+        if email_tag:
+            try_email = _tag_email(try_email, try_username)
 
-            # Attempt to create the new account
-            try:
-                account_created = create_account(
-                    try_username, password, try_email
-                )
-            except PTCInvalidNameException:
-                # If no username was provided, create new username and try again
-                if username is None:
-                    try_username = _random_string()
-                else:
-                    # If username was provided, re-raise the exception for bad name
-                    raise
-            except PTCInvalidEmailException:
-                if email is None:
-                    try_email = _random_email()
-                elif email_tag and username is None:
-                    # If the bad email has a tag of a random username,
-                    # re-generate a new username and try again
-                    try_username = _random_string()
-                else:
-                    # If email was provided, re-raise the exception for bad email
-                    raise
+        # Attempt to create the new account
+        try:
+            account_created = create_account(
+                try_username, password, try_email
+            )
+        except PTCInvalidNameException:
+            # If no username was provided, create new username and try again
+            if username is None:
+                try_username = _random_string()
+            else:
+                # If username was provided, re-raise the exception for bad name
+                raise
+        except PTCInvalidEmailException:
+            if email is None:
+                try_email = _random_email()
+            elif email_tag and username is None:
+                # If the bad email has a tag of a random username,
+                # re-generate a new username and try again
+                try_username = _random_string()
+            else:
+                # If email was provided, re-raise the exception for bad email
+                raise
 
     # Return the username, password, and email of the new account
     return {

@@ -3,26 +3,26 @@ from io import open
 from setuptools import setup
 
 DIST_NAME = 'Pikapy'
-VERSION = 'v1.2.1'
+VERSION = 'v0.2'
 AUTHOR = 'James Payne'
-EMAL = 'jepayne1138@gmail.com'
-GITHUB_USER = 'jepayne1138'
+EMAIL = 'skvvv.og@gmail.com'
+GITHUB_USER = 'skvvv'
 GITHUB_URL = 'https://github.com/{GITHUB_USER}/{DIST_NAME}'.format(**locals())
 
 # Get the long description from the README file
 setup_dir = os.path.dirname(os.path.realpath(__file__))
-with open(os.path.join(setup_dir, 'README.rst'), encoding='utf-8') as readme:
+with open(os.path.join(setup_dir, 'README.md'), encoding='utf-8') as readme:
     long_description = readme.read()
 
 setup(
     name=DIST_NAME,
-    packages=['ptcaccount'],
+    packages=['pikapy'],
     version=VERSION,
-    description='Automatic creation of Pokemon Trainer Club accounts.',
+    description='Pokemon Go Bulk Account Creator.',
     author=AUTHOR,
-    author_email=EMAL,
+    author_email=EMAIL,
     url=GITHUB_URL,
-    license='BSD-new',
+    license='GPL v3',
     download_url='{GITHUB_URL}/tarball/{VERSION}'.format(**locals()),
     keywords='',
     install_requires=[
@@ -33,11 +33,11 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: Implementation :: CPython',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     ],
     entry_points={
         'console_scripts': [
-            'pikapy = ptcaccount.console:entry',
+            'pikapy = pikapy.console:entry',
         ],
     }
 )
