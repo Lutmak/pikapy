@@ -55,33 +55,31 @@ def entry():
     args = parse_arguments(sys.argv[1:])
     try:
     # Create the random account
-    account_info = random_account(
-        args.username, args.password, args.email, args.email_tag, args.count
-    )
+        account_info = random_account(
+            args.username, args.password, args.email, args.email_tag, args.count
+        )
 
-    
+        # Display the account credentials
+        print('Created new account:')
+        print('  Username:  {}'.format(account_info[USERNAME]))
+        print('  Passwrd:  {}'.format(account_info[PASSWORD]))
+        print('  Email   :  {}'.format(account_info[EMAIL]))
 
-    # Display the account credentials
-    print('Created new account:')
-    print('  Username:  {}'.format(account_info[USERNAME]))
-    print('  Passwrd:  {}'.format(account_info[PASSWORD]))
-    print('  Email   :  {}'.format(account_info[EMAIL]))
-
-    # Accept Terms Service
-    
-    accept_tos(account_info[USERNAME], account_info[PASSWORD])
-
-    # Append usernames 
-    with open("usernames.txt", "a") as ulist:
-        ulist.write(account_info[USERNAME]+"\n")
-        ulist.close()
+        # Accept Terms Service
         
-    with open("pokemaparguments.txt", "a") as plist:
-        plist.write(" -u " + account_info[USERNAME])
-        plist.close()
-    print('Usernames stored in usernames.txt and formated ones in pokemaparguments.txt ')
-    time.sleep(2)
-    
+        accept_tos(account_info[USERNAME], account_info[PASSWORD])
+
+        # Append usernames 
+        with open("usernames.txt", "a") as ulist:
+            ulist.write(account_info[USERNAME]+"\n")
+            ulist.close()
+            
+        with open("pokemaparguments.txt", "a") as plist:
+            plist.write(" -u " + account_info[USERNAME])
+            plist.close()
+        print('Usernames stored in usernames.txt and formated ones in pokemaparguments.txt ')
+        time.sleep(2)
+
     # Handle account creation failure exceptions
     except PTCInvalidPasswordException as err:
         print('Invalid password: {}'.format(err))
