@@ -1,7 +1,7 @@
 import argparse
 import sys
-from ptcaccount import *
-from ptcaccount.ptcexceptions import *
+from pikapy import *
+from pikapy.ptcexceptions import *
 from pgoapi import PGoApi
 from pgoapi.utilities import f2i
 from pgoapi import utilities as util
