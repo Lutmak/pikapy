@@ -11,7 +11,7 @@ except ImportError:
 
 import requests
 
-from ptcaccount.ptcexceptions import *
+from pikapy.ptcexceptions import *
 
 
 __all__ = [
