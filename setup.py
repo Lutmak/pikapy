@@ -11,7 +11,7 @@ GITHUB_URL = 'https://github.com/{GITHUB_USER}/{DIST_NAME}'.format(**locals())
 
 # Get the long description from the README file
 setup_dir = os.path.dirname(os.path.realpath(__file__))
-with open(os.path.join(setup_dir, 'README.rst'), encoding='utf-8') as readme:
+with open(os.path.join(setup_dir, 'README.md'), encoding='utf-8') as readme:
     long_description = readme.read()
 
 setup(
