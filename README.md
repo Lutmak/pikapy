@@ -4,7 +4,7 @@ Pikapy - Mass Pokemon Go Account Creator and ToS verifier
 Description
 -----------
 Automatically creates Pokemon Trainer Club accounts, and reads the ToS making them usable after the recent Niantic patch.
-Text files will be created in your current directory.
+Text files will be created in your current directory. usernames.txt will give the needed output for https://github.com/favll/pogom in username:password format.
 
 Installation
 ------------
@@ -61,15 +61,5 @@ Extra Options:
 - *--email-tag*: Add the username as a tag to the email (e.g. address+username@gmail.com)
 Output is saved both as a list of usernames, and pokemongo-map ready -u username1 -u username2 -username3... format
 
-Suggested Use:
--------------
-    
-    ~pikapy -p masterpassword -c 100
-
-This will generate 100 Pokemon Go accounts with random username and password==masterpassword
-Next step would be inputting all the usernames from the generated .txt file into the pokemongo-map.
-
-
-Planning to make it fully autonomous in the close future.
     
 
