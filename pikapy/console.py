@@ -72,14 +72,12 @@ def entry():
 
             # Append usernames 
             with open("usernames.txt", "a") as ulist:
-                ulist.write(account_info[USERNAME]+"\n")
+                ulist.write(account_info[USERNAME]+":"+account_info[PASSWORD]+"\n")
                 ulist.close()
                 
             with open("pokemaparguments.txt", "a") as plist:
                 plist.write(" -u " + account_info[USERNAME])
                 plist.close()
-            print('Usernames stored in usernames.txt and formated ones in pokemaparguments.txt ')
-            time.sleep(2)
 
         # Handle account creation failure exceptions
         except PTCInvalidPasswordException as err:
