@@ -4,6 +4,7 @@ Pikapy - Mass Pokemon Go Account Creator and ToS verifier
 Description
 -----------
 Automatically creates Pokemon Trainer Club accounts, and reads the ToS making them usable after the recent Niantic patch.
+Text files will be created in your current directory.
 
 Installation
 ------------
