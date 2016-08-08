@@ -65,10 +65,10 @@ Installation
 
 Install from Github using pip::
 
-    ~pip install git+https://github.com/skvvv/PTCAccount
+    ~pip install git+https://github.com/skvvv/pikapy
     
     
     If given errors try (Arch linux users will most likely have to do this):
     
     
-    ~sudo pip2 install git+https://github.com/skvvv/PTCAccount
+    ~sudo pip2 install git+https://github.com/skvvv/pikapy
